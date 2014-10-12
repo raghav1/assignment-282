@@ -1,0 +1,57 @@
+<!doctype html>
+  <html>
+  <head>
+  <meta charset="UTF-8">
+  <title>survey</title>
+  <script src="common.js"></script>
+  <script>
+  function next(){
+    
+    if(document.querySelector('input[name="question1"]:checked')!=null){
+      if(document.querySelector('input[name="question1"]:checked').value==="a"){
+        correctAns();
+      }
+      else{
+         attemptedAns();
+      }
+    }
+    location.href="result.html";
+  }
+  </script>
+  </head>
+  <body>
+    <form >
+     <h1>Survey</h1>
+     <p> <b>How did you like the center?</b></p>
+     <b>Comments:</b><br>
+     <textarea name="Comments" id="comments" cols="100" rows="5">
+     </textarea>
+     <p><b>Select Text Area Location:</b></p>
+     <p>
+      City:
+     <input list="raghav">
+     <datalist id="raghav">
+     <option value="San Jose">
+      <option value="Mountain View">
+        <option value="Fremont">
+          <option value="Union City">
+            <option value="Palo Alto">
+     </datalist>
+
+     Room Number:
+     <input list="raghav1">
+     <datalist id="raghav1">
+     <option value="Room 1">
+      <option value="Room 2">
+        <option value="Room 3">
+          <option value="Room 4">
+            <option value="Room 5">
+     </datalist></p>
+     <p> <input type="button" value="Submit and Get Score" onclick="next()">
+  <input type="button" value="Skip and Get Score" onclick="next()" >
+
+        </p >
+
+    </form>
+</body>
+</html> 

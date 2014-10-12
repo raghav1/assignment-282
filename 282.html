@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+    function Create()
+    {
+        var value1=document.getElementById('firname').value;
+    localStorage.setItem('fname',value1);
+    var value2=document.getElementById('lname').value;
+    localStorage.setItem('lname',value2);
+    var value3=document.getElementById('email').value;
+    localStorage.setItem('email',value3);
+    var value4=document.getElementById('fname').value;
+    localStorage.setItem('pwd',value4);
+    var value5=document.getElementById('ssn').value;
+    localStorage.setItem('ssn ',value5);
+    var value6=document.getElementById('numb').value;
+    localStorage.setItem('phone no',value6);
+    var value7=document.getElementById('ccd').value;
+    localStorage.setItem('CCD',value7);
+    var value8=document.getElementById('dob').value;
+    localStorage.setItem('dob',value8);
+    var value9=document.getElementById('dobt').value;
+    localStorage.setItem('dobt',value9);
+    var value10=document.getElementById('ldob').value;
+    localStorage.setItem('ldob',value10);
+
+}
+    </script>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript">
+     
+          $(function(){
+          
+               if (!window.navigator.onLine) {
+            $("#status").addClass('lost').text("You lost the internets!");
+        } else {    
+            $("#status").addClass('active').text("You have the internets!");
+        }
+        document.body.addEventListener("online", function () {
+            $("#status").addClass('active').text("You have the internets!");
+        }, false);
+        document.body.addEventListener("offline", function () {
+            $("#status").addClass('lost').text("You lost the internets!");
+        }, false);
+ 
+    });
+ 
+    </script>
+
+    <script src="modernizr.js"></script>
+
+    </head>
+<body>
+<form>
+    <h1>Registration Page</h1>
+    <div id="localStatus"></div>
+    
+    
+    <div>
+        <label for="First name">First Name:</label>
+        <input type="text" id="firname" placeholder="First Name"/>
+    </div>
+    <div>
+        <label for="Last name">Last Name:</label>
+        <input type="text" id="lname" placeholder="Last Name"/>
+    </div>
+    <div>
+        <label for="Email">E-mail:</label>
+        <input type="email" id="email" placeholder="Email" />
+    </div>
+    <div>
+        <label for="email">Password</label>
+
+        <input type="password" id="fname" onkeyup="myFunction()"/>
+        <progress id =  "pid" value ="0" max = "100"></progress>
+<span id="progress1"></span>
+    </div>
+    
+
+<script>
+function myFunction() {
+ 
+var text=document.getElementById("fname").value;
+
+
+    var lowerChars=0,upperCase=0,specialCase=0;
+    
+    var special=text.match( /[a-zA-Z0-9 ]*/);
+    //console.log(text.length-special[0].length);
+    specialCase=(text.length-special[0].length);
+    var lower=text.match(/[a-z]+/);
+    if(lower!=null)
+    {
+        //console.log(lower[0]);
+        lowerChars=lower[0].length;
+    }
+    var upper=text.match(/[A-Z]+/);
+    if(upper != null)
+    {
+        //console.log(upper[0]);
+        upperCase=upper[0].length;
+    }
+    if(upperCase=== 3 && lowerChars=== 2 && specialCase=== 2)
+    {
+        document.getElementById("pid").value="50";
+        document.getElementById("progress1").innerHTML="Normal";
+    }
+    else if(upperCase== 3 && lowerChars == 2 && specialCase>=3 && specialCase<=5)
+    {
+        document.getElementById("pid").value="70";
+         document.getElementById("progress1").innerHTML="Medium";
+    }
+    else if(upperCase== 3 && lowerChars== 2 && specialCase >5)
+    {
+        document.getElementById("pid").value="100";
+        document.getElementById("progress1").innerHTML="Strong";
+    }else{
+         document.getElementById("pid").value="0";
+         document.getElementById("progress1").innerHTML="Condition Not Matched";
+
+
+    }
+
+
+
+
+    //console.log(special[0].length+" lower "+lower[0].length+" upper "+upper[0].length);
+
+}
+</script>
+<div>Confirm Password:
+<input type="password" id="passwordconf" name="passwordconf" oninput="check(this)">
+</div>
+<script language='javascript' type='text/javascript'>
+function check(input) {
+    if (input.value != document.getElementById('fname').value) {
+        input.setCustomValidity('The two passwords must match.');
+    } else {
+        // input is valid -- reset the error message
+        input.setCustomValidity('');
+   }
+}
+</script>
+    <div>
+    Phone Number:
+    <input required pattern="^\d{3}-\d{3}-\d{4}$" id="numb" title="###-###-####" placeholder="###-###-####"/>
+    </div>
+
+   
+        <p class="submit"><input type="submit"  value="Create" onclick="Create()"></p>
+<div id="status"></div>
+<div id="lstatus"></div>
+<script>
+    if (Modernizr.localstorage) {
+  document.getElementById("lstatus").innerHTML=("Local storage available");
+} else {
+  // no native support for local storage :(
+  // try a fallback or another third-party solution
+document.getElementById("lstatus").innerHTML=("Local storage not available");
+}
+    </script>
+</body>
+</html>

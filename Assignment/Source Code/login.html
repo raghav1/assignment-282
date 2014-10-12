@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>Login Form</title>
+  <script>
+  if(typeof(Storage) !== "undefined") {
+        if (sessionStorage.correctAns) {
+            sessionStorage.correctAns = Number(0);
+            sessionStorage.attemptedAns = Number(0);
+        } else {
+            sessionStorage.correctAns = Number(0);
+            sessionStorage.attemptedAns = Number(0);
+        }
+  
+        attemptedAns();
+    } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+    }
+  </script>
+</head>
+<body>
+    <div class="login">
+      <h1>User Login</h1>
+      <form action="question1.html">
+        <p>Username:<input type="text" name="Username" value="" placeholder="Username"></p>
+        <p>Password:<input type="password" name="password" value="" placeholder="Password"></p>
+        <p >
+          <a href="url">Create Account/Forgot?</a>
+          <input type="submit" value="Login" >
+       
+        </p>
+
+      </form>
+    </div>
+</body>
+</html>

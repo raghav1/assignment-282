@@ -1,0 +1,32 @@
+<!doctype html>
+  <html>
+  <head>
+  <meta charset="UTF-8">
+  <title>Result Page</title>
+
+</head>
+<body>
+	<form>
+		<h1>Result</h1>
+	Corrected Answer:<span id="Correct"></span><br><br>
+	Attempted Answer:<span id="Attempted"></span>
+	<script >
+ 
+if(typeof(Storage) !== "undefined") {
+        
+           document.getElementById("Correct").innerHTML= sessionStorage.correctAns;
+           document.getElementById("Attempted").innerHTML= sessionStorage.attemptedAns;
+        
+  
+       
+    } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+    }
+  </script>
+<div align="center">
+  <h1>Thank You</h1>
+  <p> <input type="button" value="Finish" onclick="location.href='login.html'"></p> 
+</div>
+  <form>
+</body>
+</html>	

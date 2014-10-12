@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+  <style>
+  
+    h1 {color: red}
+    p {color:green}
+    </style>
+  <meta charset="utf-8">
+  <title>Main Page</title>
+  <script src="restinteraction.js"></script>
+  <style>
+  div.abc {border-style: solid ;}
+  div.abc1 {border-style: solid ;}
+  </style>
+</head>
+ <body bgcolor="grey">
+  	 <input type="button" value="Add Item" onClick="window.location='additem.html'"style="background-color:yellow;height:25px;width:100px;">
+      <input type="button" value="logout" onClick="window.location='signin.html'"style="background-color:yellow;height:25px;width:100px;">
+	
+	<div>
+  	<div id="catalog">
+  	<script>getCatalog();</script>
+</div>
+<div id="Allitems">
+	<script>getitems();</script>
+</div>
+
+</body>
+
+</html>

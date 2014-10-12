@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+ <style>
+  
+    h1 {color: red}
+    p {color:green}
+    div.cc{    border-style:solid;
+        border-color: blue;}
+    </style>
+  <meta charset="utf-8">
+  <title>Payment Details</title>
+  <style>
+  div.payment {border-style: solid ;}
+
+  </style>
+  <script src="restinteraction.js"></script>
+  <body bgcolor="grey">
+  	<form >
+      <div class="cc">
+    <h1>Payment details</h1>
+    <div class="payment">
+    <table style="width:100%">
+     
+       <tr> <p>Amount<input type="text" name="Amount" id="amount" value="" placeholder="Amount"></p></tr>
+         <tr><p>Card<input type="text" name="card" id="card" value=""></p></tr>
+         
+        <tr>  <input type="button" value="Pay" onClick="pay()"style="background-color:yellow;height:25px;width:100px;">
+           <input type="button" value="Cancel" onClick="window.location='/main.html'"style="background-color:yellow;height:25px;width:100px;"></tr>
+         </table>
+</div>
+</div>
+          </form>
+      </body>
+  </head>
+  </html>
+ 

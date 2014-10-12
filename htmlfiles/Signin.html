@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+ 
+     <style>
+  
+    h1 {color: red}
+    p {color:green}
+     div.signin{    border-style:solid;
+        border-color: blue;}
+    </style>
+    
+  <meta charset="utf-8">
+  <title>Login Form</title>
+  <script>
+  if(typeof(Storage) !== "undefined") {
+        if (sessionStorage.correctAns) {
+            sessionStorage.correctAns = Number(0);
+            sessionStorage.attemptedAns = Number(0);
+        } else {
+            sessionStorage.correctAns = Number(0);
+            sessionStorage.attemptedAns = Number(0);
+        }
+  
+        attemptedAns();
+    } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+    }
+  </script>
+  <script src="restinteraction.js"></script>
+</head>
+<body bgcolor="grey">
+  <div class="signin">
+    <div class="login">
+      <h1>User Login  </h1>
+      <form action="">
+        <p>Username:<input type="text" name="Username" id="Username" value="" placeholder="Username"></p>
+        <p>Password:<input type="password" name="password" id="pass" value="" placeholder="Password"></p>
+     
+          
+      
+          <input type="button" value="Login" onClick="login()" style="background-color:yellow;height:25px;width:100px;">
+           <input type="button" value="Create Account" onClick="window.location='signup.html'" style="background-color:yellow;height:25px;width:100px;">
+       
+ 
+
+      </form>
+    </div>
+  </div>
+</body>
+</html>

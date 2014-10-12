@@ -1,0 +1,157 @@
+<!doctype html>
+  <html>
+  <head>
+  <meta charset="UTF-8">
+  <title>Question 1</title>
+  <script src="common.js"></script>
+  <script>
+  function next(){
+    
+    if(document.querySelector('input[name="question1"]:checked')!=null){
+      if(document.querySelector('input[name="question1"]:checked').value==="a"){
+        correctAns();
+      }
+      else{
+         attemptedAns();
+      }
+    }
+    location.href="question2.html";
+  }
+  </script>
+  </head>
+  <body>
+    <form >
+     <h1>Question 1</h1>
+     <p> Given Points(x1,y1) and (x2,y2) select the formula to find the equation of the given line.</p>
+<div>
+<div class="question1" style="float:left;width:50%">
+<input type="radio" value="a" name="question1">
+
+<math >
+       <mrow>
+        <mi>y</mi>
+             <mo>=</mo>
+             <mi>mx</mi>
+               <mo>+</mo>
+               <mi>b</mi>
+        </mrow>
+   </math> <br>
+
+<input type="radio" value="b" name="question1">
+<math>
+        <mrow>
+          <msup>
+            <mi>
+              <mo>(</mo>
+              <mi>x</mi>
+              <mo>-</mo>
+              <mi>h</mi>
+              <mo>)</mo>
+            </mi>
+          <mn>2</mn>
+          </msup>
+          <mo>+</mo>
+          <msup>
+            <mi>
+              <mo>(</mo>
+              <mi>y</mi>
+              <mo>-</mo>
+              <mi>k</mi>
+              <mo>)</mo>
+            </mi>
+          <mn>2</mn>
+          </msup>
+          <mi>=</mi>
+          <msup>
+            <mi>r</mi>
+            <mn>2</mn>
+          </msup>
+        </mrow>
+      </math>
+
+
+
+ <br>
+<input type="radio" value="c" name="question1"> 
+<math>
+        <mrow>
+          <mi>y</mi>
+          <mo>-</mo>
+          <msub>
+            <mi>y</mi>
+            <mn>1</mn>
+          </msub>
+          <mi>=</mi>
+          <mi>m</mi>
+          <mo>(</mo>
+          <mi>x</mi>
+          <mo>-</mo>
+          <msub>
+            <mi>x</mi>
+            <mn>1</mn>
+          </msub>
+          <mo>)</mo>
+        </mrow>
+      </math>
+<br>
+
+<input type="radio" value="d" name="question1"> 
+<math>
+        <mrow>
+          <mi>y</mi>  <!--minteger-->
+          <mo>-</mo>
+          <msub>
+            <mi>y</mi>
+            <mn>2</mn>
+          </msub>
+          <mi>=</mi>
+          <mfrac>
+              <mi>
+              <msub>
+                <mi>y</mi>
+                <mn>2</mn>
+              </msub>
+              <mo>-</mo>
+              <msub>
+                <mi>y</mi>
+                <mn>1</mn>
+              </msub>
+              </mi>
+              <mi>
+                <msub>
+                  <mi>x</mi>
+                  <mn>2</mn>
+                </msub>
+                <mo>-</mo>
+                <msub>
+                  <mi>x</mi>
+                  <mn>1</mn>
+                </msub>
+              </mi>
+          </mfrac>
+          <mo>(</mo>
+          <mi>x</mi>
+          <mo>-</mo>
+          <msub>
+            <mi>x</mi>
+            <mn>1</mn>
+          </msub>
+          <mo>)</mo>
+        </mrow>
+      </math>
+<br>
+
+<br>
+</div>
+<div style="float:left;width:50%;">
+ <image src="image.png" style="width:200px;height:228px">
+</div>
+</div>
+<div style="clear:both"/>
+<p> <input type="button" value="Submit and Next" onclick="next()">
+  <input type="button" value="Cancel and Clear" >
+
+        </p >
+    </form>
+</body>
+</html> 

@@ -1,0 +1,49 @@
+<!doctype html>
+  <html>
+  <head>
+  <meta charset="UTF-8">
+  <title>Question4</title>
+  <script src="common.js"></script>
+  <script>
+  function next(){
+    
+    if(document.querySelector('input[name="question4"]:checked')!=null){
+      if(document.querySelector('input[name="question4"]:checked').value==="a"){
+        correctAns();
+      }
+      else{
+         attemptedAns();
+      }
+    }
+    location.href="survey.html";
+  }
+  </script>
+  </head>
+  <body>
+    <form >
+     <h1>Question 4</h1>
+     <p> Watch the video and answer the following question. What is the source as mentioned in the video?</p>
+<video width="320" height="240" controls>
+  <source src="https://www.youtube.com/embed/LNLlKZeQabo" type="video/mp4">
+
+   </video>
+
+<div class="question4">
+<input type="radio" value="a" name="question4"> Nasa.gov <br>
+<input type="radio" value="b" name="question4">Data.gov
+
+
+
+ <br>
+<input type="radio" value="c" name="question4"> Facebook
+<br>
+<input type="radio" value="d" name="question4"> XYZ.net
+<br>
+</div>
+<p> <input type="button" value="Submit and Next" onClick="next()" >
+  <input type="button" value="Cancel and Clear" >
+
+        <p >
+    </form>
+</body>
+</html> 

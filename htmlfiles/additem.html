@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head>
+   <style>
+  
+    h1 {color: red}
+    p {color:green}
+     div.add{    border-style:solid;
+        border-color: blue;}
+    </style>
+  <meta charset="utf-8">
+  <title>Add item</title>
+  <script src="restinteraction.js"></script>
+<body bgcolor="grey">
+  	<form >
+      <div class="add">
+    <h1>ADD ITEM  </h1>
+     <p>Name<input type="text" name="name" id="name" value="" placeholder="name"></p>
+        <p>Description<input type="text" name="Description" id="description" value="" placeholder="Description"></p>
+        Catalog<select id="catalog">
+  <option value="Books">Books</option>
+  <option value="Toys">Toys</option>
+  <option value="Electronics">Electronics</option>
+  <option value="Furniture">Furniture</option>
+  <option value="Candies">Candies</option>
+  <option value="Cosmetics">Cosmetics</option>
+  <option value="Electronics">Electronics</option>
+  <option value="Office">Office</option>
+  <option value="Food">Food</option>
+</select>
+          <p>Quantity<input type="integer" name="Quantity" id="quantity" value=""></p>
+           <p>Cost<input type="integer" name="cost" id="cost" value="" placeholder="Price of Item"></p>
+        
+          <input type="button" value="Save" onClick="additem()"style="background-color:yellow;height:25px;width:100px;">
+           <input type="button" value="Cancel" onClick="window.location='/main.html'"style="background-color:yellow;height:25px;width:100px;">
+</div>
+          </form>
+      </body>
+  </head>
+  </html>

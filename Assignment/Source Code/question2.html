@@ -1,0 +1,154 @@
+<!doctype html>
+  <html>
+  <head>
+  <meta charset="UTF-8">
+  <title>Question2</title>
+  <script src="common.js"></script>
+
+  <script>
+  function next(){
+    
+    if(document.querySelector('input[name="question2"]:checked')!=null){
+      if(document.querySelector('input[name="question2"]:checked').value==="a"){
+        correctAns();
+      }
+      else{
+         attemptedAns();
+      }
+    }
+    location.href="question3.html";
+  }
+  </script>
+  </head>
+  <body>
+    <form>
+     <h1>Question 2</h1>
+     <p> Select the cosine formula</p>
+<div>
+<div class="question2" style="float:left;width:50%;">
+<input type="radio" value="a" name="question2">
+<math>
+      <mrow>
+        <mi>cos</mi>
+        <mo>(</mo>
+        <mn>&#x03B1;</mn>
+        <mo>&#x00B1;</mo>
+        <mn>&#x03B2;</mn>
+        <mo>)</mo>
+        <mo>=</mo>
+        <mi>cos</mi>
+        <mn>&#x03B1;</mn>
+        <mi>cos</mi>
+        <mn>&#x03B2;</mn>
+        <mo>&#x2213;</mo>
+        <mi>sin</mi>
+        <mn>&#x03B1;</mn>
+        <mi>sin</mi>
+        <mn>&#x03B2;</mn>
+      </mrow>
+      </math> 
+ <br>
+<input type="radio" value="b" name="question2">
+<math>
+        <math>
+        <mrow>
+         <mi>sin</mi>
+         <mo>(</mo>
+         <mn>&#x03B1;</mn>
+         <mo>&#x00B1;</mo>
+         <mn>&#x03B2;</mn>
+         <mo>)</mo>
+         <mo>=</mo>
+         <mi>sin</mi>
+         <mn>&#x03B1;</mn>
+         <mi>cos</mi>
+         <mn>&#x03B2;</mn>
+         <mo>&#x00B1;</mo>
+         <mi>cos</mi>
+         <mn>&#x03B1;</mn>
+         <mi>sin</mi>
+         <mn>&#x03B2;</mn>
+       </mrow>
+      </math>
+
+
+ <br>
+<input type="radio" value="c" name="question2"> 
+<math>
+        <mrow>
+          <mi>sin</mi>
+          <mn>&#x03B1;</mn>
+          <mo>+</mo>
+          <mi>sin</mi>
+          <mn>&#x03B2;</mn>
+          <mo>=</mo>
+          <mi>2sin</mi>
+          <mo>(</mo>
+          <mfrac>
+            <mi> 
+              <mi>&#x03B1;</mi>
+              <mo>+</mo>
+              <mi>&#x03B2;</mi>
+            </mi>
+            <mi>2</mi>
+          </mfrac>
+          <mo>)</mo>
+          <mi>cos</mi>
+          <mo>(</mo>
+          <mfrac>
+            <mi> 
+              <mi>&#x03B1;</mi>
+              <mo>-</mo>
+              <mi>&#x03B2;</mi>
+            </mi>
+            <mi>2</mi>
+          </mfrac>
+          <mo>)</mo>
+        </mrow>
+      </math>
+      <br>
+<input type="radio" value="d" name="question2"> 
+ <math>
+        <mrow>
+          <mi>sin</mi>
+          <mn>&#x03B1;</mn>
+          <mo>-</mo>
+          <mi>sin</mi>
+          <mn>&#x03B2;</mn>
+          <mo>=</mo>
+          <mi>2cos</mi>
+          <mo>(</mo>
+          <mfrac>
+            <mi> 
+              <mi>&#x03B1;</mi>
+              <mo>+</mo>
+              <mi>&#x03B2;</mi>
+            </mi>
+            <mi>2</mi>
+          </mfrac>
+          <mo>)</mo>
+          <mi>sin</mi>
+          <mo>(</mo>
+          <mfrac>
+            <mi> 
+              <mi>&#x03B1;</mi>
+              <mo>-</mo>
+              <mi>&#x03B2;</mi>
+            </mi>
+            <mi>2</mi>
+          </mfrac>
+          <mo>)</mo>
+        </mrow>
+      </math>
+<br>
+</div>
+<div style="float:right;width:50%;"></div>
+</div>
+<div style="clear:both"/>
+<p> <input type="button" value="Submit and Next" onclick="next()">
+  <input type="button" value="Cancel and Clear" >
+
+        </p >
+    </form>
+</body>
+</html> 

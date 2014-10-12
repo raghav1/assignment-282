@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Question 3</title>
+	<script src="common.js"></script>
+	<script>
+function myFunction(p1) {
+		    if (p1 === "option1") {
+		        document.getElementById("option1").style.display = "block";
+		        document.getElementById("option2").style.display = "none";
+		    } else {
+		        document.getElementById("option2").style.display = "block";
+		        document.getElementById("option1").style.display = "none";
+		    }
+		}
+		var value1 = null;
+		var value2 = null;
+
+		function next() {
+		    //
+    if (document.querySelector('input[name = "mark1"]:checked') != null && document.querySelector('input[name =  "mark2"]:checked') != null) {
+					value1 = document.querySelector('input[name = "mark1"]:checked').value;
+					value2 = document.querySelector('input[name = "mark2"]:checked').value;
+					    if (value1 === "650" && value2 === "Twitter") {
+						correctAns();
+						
+					    }
+					 else {
+					    attemptedAns();
+					    
+					}
+					location.href='question4.html';
+		}
+}
+		
+	</script>
+</head>
+<body>
+	<h1>Question3</h1>
+	<div>
+		<div class="left" style="float:left;width:60%">
+		<p>As per the latest twitter news, complete the article snippet given by selecting appropriate choices for the blanks</p>
+			<form>
+				<div id="options">
+				
+				</div>
+				<div id="option1" >
+					           
+						  <input type = "radio"
+							 name="mark1"	
+							 id = "opt1mark1"
+							 value = "650"
+							  />
+						  <label for = "opt1mark1">Option 1 Mark 1:$650</label>
+						  </br>
+						  <input type = "radio"
+							 name= "mark1"
+							 id = "opt2mark1"
+							 value = "550" />
+						  <label for = "opt2mark1">Option 2 Mark 1:$550</label>
+					 	  </br>
+						  <input type = "radio"
+							 name= "mark1"
+							 id = "opt3mark1"
+							 value = "450" />
+						  <label for = "opt3mark1">Option 3 Mark 1:$450</label>
+						</br>
+				</div>
+				<div id="option2" style="display:none;" >
+						 <input type = "radio"
+							 name="mark2"	
+							 id = "opt1mark2"
+							 value = "Twitter"
+							 />
+						  <label for = "opt1mark2">Option 1 Mark 2:Twitter</label>
+						  </br>
+						  <input type = "radio"
+							 name= "mark2"
+							 id = "opt2mark2"
+							 value = "Google" />
+						  <label for = "opt2mark2">Option 2 Mark 2:Google</label>
+					 	  </br>
+						  <input type = "radio"
+							 name= "mark2"
+							 id = "opt3mark2"
+							 value = "Facebook" />
+						  <label for = "opt3mark2">Option 3 Mark 2:Facebook</label>
+						 </br>
+				</div>
+			</form>		
+		</div>
+		<div class="right"  style="float:right;width:40%">
+			<p>Twitter wants more cash. The company announced two <mark onclick="myFunction('option1')">$<span id="option1span">______</span></mark> million debt offerings in a filing today, each with a potential $100 increase provided that the sales are oversubscribed. Assuming full tip including the $100 million boosters <mark onclick="myFunction('option2')"><span id="option2span">______</span> </mark>will raise up to $1.5 billion with the two offerings.</p>
+<p>Sourcs: http://techcrunch.com/2014/09/10/twitter-to-raise-up-to-1-5b-in-debt-offering/ </p>
+		</div>
+	</div>
+	<div style="clear:both"></div>
+	<p> <input type="button" value="Submit and Next" onclick="next()">
+  <input type="button" value="Cancel and Clear" >
+
+        </p >
+</body>
+</html>

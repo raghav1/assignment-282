@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+  
+    h1 {color: red; text-align:center;}
+    p {color:green;}
+    div.sign{    border-style:solid;
+        border-color: blue;}
+    </style>
+    
+    <script src="restinteraction.js"></script>
+    
+   
+
+    </head>
+<body bgcolor="grey">
+<form >
+    <div class="sign">
+    <h1>Registration Page </h1>
+    <div id="localStatus"></div>
+    
+    
+    <div>
+    <p>    <label for="First name">First Name:</label>
+        <input type="text" id="Firstname" placeholder="First Name"/></p>
+    </div>
+    <div>
+       <p> <label for="Last name">Last Name:</label>
+        <input type="text" id="Lastname" placeholder="Last Name"/></p>
+    </div>
+    <div>
+      <p>  <label for="username">Username:</label>
+        <input type="username" id="username" placeholder="username" /></p>
+    </div>
+    <div>
+       <p> <label for="username">Password</label>
+
+       <input type="password" id="password" onkeyup="myFunction()"/></p>
+           </div>
+    
+
+
+
+    <div>
+   <p> Phone Number:
+    <input required pattern="^\d{3}-\d{3}-\d{4}$" id="numb" title="###-###-####" placeholder="###-###-####"  / ></p>
+    </div>
+
+   
+        <input type="button"  value="Create" onclick="create()" style="background-color:yellow;height:25px;width:100px;text-align:center;">
+        <input type="button" value="cancel"  onclick="window.location='signin.html'"style="background-color:yellow;height:25px;width:100px;">
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<style>
+div.abc1 {border-style: solid ;}
+
+    h1 {color: red}
+
+    p {color:green}
+  
+  div.abc{    border-style:solid;
+        border-color: blue;}
+    </style>
+
+
+</style>
+<script src="restinteraction.js"></script>
+<script src="jquery.min.js"></script>
+<body bgcolor="grey">
+	<div abc1>
+	 <input type="button" value="Add Item" onClick="window.location='additem.html'" style="background-color:yellow;height:25px;width:100px;">
+      <input type="button" value="logout" onClick="window.location='signin.html'" style="background-color:yellow;height:25px;width:100px;">
+  </div>
+	</body>
+<div id="catalog">
+	<script>
+function get(name){
+   if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+      return decodeURIComponent(name[1]);
+}
+var xyz = get("q");
+getItemsInCatalog(xyz);
+</script>
+</div>
+
+
+</html>
