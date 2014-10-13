@@ -11,20 +11,16 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
 
-var mysql = require('mysql');
 
 var AWS = require('aws-sdk');
 AWS.config.update({
-    accessKeyId: process.env.AWSAcessKeyId,
-    secretAccessKey: process.env.AWSSecretkey,
-    region: "us-west-1"
+accessKeyId: process.env.AWSAcessKeyId,
+secretAccessKey: process.env.AWSSecretkey,
+region: "us-west-1"
 });
-
-
 //this does not look like my code
 // Using dynamo local
 dynam = new AWS.DynamoDB();
-
 
 var vogels = require('vogels');
 vogels.dynamoDriver(dynam);
@@ -95,11 +91,10 @@ function calls(err, data) {
 
 };
 
-var mysql      = require('mysql');
+var mysql = require('mysql');
 var db=require("/srv/www/cmpe282/shared/config/opsworks");
 db.db.user="root";
 var connection = mysql.createConnection(db.db);
-
 connection.connect();
 
 
@@ -141,8 +136,8 @@ router.route('/payment')
     }
   })
   )
-    
-    
+
+
   });
 router.route('/login')
 .post(function(req,res)
@@ -183,6 +178,7 @@ router.route('/login')
             });
 	 //connection.release();
 });
+
 router.route('/cart/:id')
 .post(function(req,res){
    var cat = new cart({
@@ -242,7 +238,6 @@ var startBatchWrite=function(fileData){
 var param=require("./public/dynamo");
 
 
-
 dynam.batchWriteItem(param, function(err, data) {
         if (err) console.log(err, err.stack); // an error occurred
         else console.log(data); // successful response
@@ -250,7 +245,7 @@ dynam.batchWriteItem(param, function(err, data) {
     app.use(express.static(__dirname + '/public'));
     app.use('/user', router);
 
-    app.set('port', 80);
+    app.set('port', process.env.PORT || 3000);
    // http.createServer(app).listen(app.get('port'), function() {
      //   console.log('Express server listening on port ' + app.get('port'));
     //});
@@ -382,341 +377,13 @@ router.route('/:catalog')
     });
 
 
-/*
-mongoose.connect('mongodb://localhost:27017/application'); // Connection between application and database//
-
-// using the bear model//
-
-var Bear=require('./app/models/bear');
-
-
-var router=express.Router();
-router.route('/bears')
-.post(function (req,res){////Insert statement in the database//
-	var bear= new Bear();
-	bear.name={'first':req.body.firstname,'last':req.body.lastname};
-	bear.age=req.body.age;
-	console.log(bear);
-	bear.save(function(err){
-
-		if(err)
-			{
-				res.send(err);
-			}
-		else{
-			res.json({message:"Record created"});
-		}
-	})
-
-
-})
-.get(function(req,res){
-	Bear.find(function(err,abc){// This is Select Statement//
-		if(err){
-			res.send(err);
-		}
-		else
-			{
-				res.json(abc);
-			}
-	})
-});
-	router.route('/bear/:bearid')/////// localhost:8080/api/bear/2354135425343254
-.get(function(req,res){
-	Bear.findById(req.params.bearid,function(err,bear){
-	if (err)
-			res.send(err);
-		else
-			res.json(bear);
-	})
-
-})
-.put(function(req,res){
-	Bear.findById(req.params.bearid,function(err,bear){
-		if(err)
-			res.send(err);
-		else
-			bear.name={'first':req.body.firstname,'last':req.body.lastname};
-	bear.age=req.body.age;
-	console.log(bear);
-	bear.save(function(err){
-
-		if(err)
-			{
-				res.send(err);
-			}
-		else{
-			res.json({message:"Record updated"});
-		}
-
-	})
-});
-})
-.delete(function(req,res){
-	Bear.remove({_id:req.params.bearid},function(err,bear){
-		if(err)
-			{
-				res.send(err);
-			}
-		else{
-			res.json({message:"Record deleted"});
-		}
-	});
-});
-// Catalog//
-var Catalog=require('./app/models/catalog');
-
-router.route('/catalog')
-.post(function (req,res){////Insert statement in the database//
-	var catalog= new Catalog();
-	catalog.name=req.body.name;
-	console.log(catalog);
-	catalog.save(function(err){
-
-		if(err)
-			{
-				res.send(err);
-			}
-		else{
-			res.json({message:"New Catalog Created"});
-		}
-	})
-
-
-})
-.get(function(req,res){
-	Catalog.find(function(err,cde){// This is Select Statement//
-		if(err){
-			res.send(err);
-		}
-		else
-			{
-				res.json(cde);
-			}
-	})
-});
-//try nowsave kar
-
-	router.route('/catalog/:catalog_id')/////// localhost:8080/api/catalog/2354135425343254
-.get(function(req,res){
-	Catalog.findById(req.params.bearid,function(err,catalog){
-	if (err)
-			res.send(err);
-		else
-			res.json(catalog);
-	})
-
-})
-
-.put(function(req,res){
-	Catalog.findById(req.params.catalog_id,function(err,catalog){
-		if(err)
-			res.send(err);
-		else
-			catalog.name=req.body.name;
-	console.log(catalog);
-	bear.save(function(err){
-
-		if(err)
-			{
-				res.send(err);
-			}
-		else{
-			res.json({message:"Catalog Name Updated"});
-		}
-
-	})
-});
-})
-.delete(function(req,res){
-	Catalog.remove({_id:req.params.catalog_id},function(err,catalog){
-		if(err)
-			{
-				res.send(err);
-			}
-		else{
-			res.json({message:"Catalog deleted"});
-		}
-	});
-});
-
-
-// Item //
-var Item=require('./app/models/item');
-router.route('/item')
-.post(function (req,res){////Insert statement in the database//
-	var item= new Item();
-	item.name=req.body.name;
-	item.catageory=req.body.catageory;
-	item.description=req.body.description;
-	item.quantity=req.body.quantity;
-	item.price=req.body.price;
-	console.log(item);
-	item.save(function(err){
-
-		if(err)
-			{
-				res.send(err);
-			}
-		else{
-			res.json({message:"New Item Created"});
-		}
-	})
-
-
-})
-.get(function(req,res){
-	Item.find(function(err,abc){// This is Select Statement//
-		if(err){
-			res.send(err);
-		}
-		else
-			{
-				res.json(abc);
-			}
-	})
-});
-	router.route('/item/:itemid')/////// localhost:8080/api/bear/2354135425343254
-.get(function(req,res){
-	Item.findById(req.params.itemid,function(err,item){
-	if (err)
-			res.send(err);
-		else
-			res.json(item);
-	})
-
-})
-.put(function(req,res){
-	Item.findById(req.params.itemid,function(err,item){
-		if(err)
-			res.send(err);
-		else
-			item.name=req.body.name;
-	item.catageory=req.body.catageory;
-	item.description=req.body.description;
-	item.quantity=req.body.quantity;
-	item.price=req.body.price;
-	console.log(item);
-	item.save(function(err){
-
-		if(err)
-			{
-				res.send(err);
-			}
-		else{
-			res.json({message:"Item Updated "});
-		}
-	})
-});
-})
-.delete(function(req,res){
-	Catalog.remove({_id:req.params.itemid},function(err,item){
-		if(err)
-			{
-				res.send(err);
-			}
-		else{
-			res.json({message:"Item deleted"});
-		}
-	});
-});
-
-
-// Credit Card
-
-
-var CCdetails=require('./app/models/ccdetails');
-
-
-var router=express.Router();
-router.route('/ccdetails')
-.post(function (req,res){////Insert statement in the database//
-	var ccdetails= new CCdetails();
-	ccdetails.name={'first':req.body.firstname,'last':req.body.lastname};
-	ccdetails.Expirationdate=req.body.Expirationdate;
-	ccdetails.code=req.body.code;
-	ccdetails.billingaddress=req.body.billingaddress;
-	ccdetails.zipcode=req.body.zipcode;
-	ccdetails.city=req.body.city;
-	ccdetails.state=req.body.state;
-
-	ccdetails.save(function(err){
-
-		if(err)
-			{
-				res.send(err);
-			}
-		else{
-			res.json({message:"Thanks for Transcation"});
-		}
-	})
-
-
-})
-.get(function(req,res){
-	CCdetails.find(function(err,abc){// This is Select Statement//
-		if(err){
-			res.send(err);
-		}
-		else
-			{
-				res.json(abc);
-			}
-	})
-});
-	router.route('/ccdetails/:ccdetails_id')/////// localhost:8080/api/bear/2354135425343254
-.get(function(req,res){
-	Bear.findById(req.params.bearid,function(err,ccdetails){
-	if (err)
-			res.send(err);
-		else
-			res.json(ccdetails);
-	})
-
-})
-.put(function(req,res){
-	CCdetails.findById(req.params.ccdetails_id,function(err,ccdetails){
-		var ccdetails= new CCdetails();
-	ccdetails.name={'first':req.body.firstname,'last':req.body.lastname};
-	ccdetails.Expirationdate=req.body.Expirationdate;
-	ccdetails.code=req.body.code;
-	ccdetails.billingaddress=req.body.billingaddress;
-	ccdetails.zipcode=req.body.zipcode;
-	ccdetails.city=req.body.city;
-	ccdetails.state=req.body.state;
-
-	ccdetails.save(function(err){
-
-		if(err)
-			{
-				res.send(err);
-			}
-		else{
-			res.json({message:"Credit Card Details Changed"});
-		}
-	})
-});
-})
-.delete(function(req,res){
-	CCdetails.remove({_id:req.params.ccdetails_id},function(err,ccdetails){
-		if(err)
-			{
-				res.send(err);
-			}
-		else{
-			res.json({message:"Record deleted"});
-		}
-	});
-});
-*/
-
 
 app.use(express.static(__dirname+"/htmlfiles"));
 app.get('/',function(req,res){
 	res.sendfile("./htmlfiles/Signup.html");
 });
 app.get('/login',function(req,res){
-  res.sendfile("./htmlfiles/signin.html");
+  res.sendfile("./htmlfiles/Signin.html");
 });
 app.get('/main',function(req,res){
   res.sendfile("./htmlfiles/main.html");
@@ -731,6 +398,9 @@ app.get('/Additem',function(req,res){
 app.get('/payment',function(req,res){
   res.sendfile("./htmlfiles/CCdetails.html");
 });
+app.get('/Vieworder',function(req,res){
+res.sendfile("./htmlfiles/viewcart.html")
+});
 
 
 
@@ -738,5 +408,5 @@ app.get('/payment',function(req,res){
 app.use('/api',router);
 
 // This should be in the end//
-var port=process.env.PORT||8080;
+var port=80;
 app.listen(port);
